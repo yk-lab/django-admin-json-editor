@@ -63,3 +63,4 @@ django_admin_json_editor/version.py
 .python-version
 .venv
 venv
+*.sqlite3
