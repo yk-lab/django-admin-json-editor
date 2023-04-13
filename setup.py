@@ -1,22 +1,12 @@
 import os
-import re
 
 from setuptools import setup
+from setuptools_scm import get_version
 
 
 project_path = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(project_path, 'README.md'), 'r') as fout:
     README = fout.read()
-
-
-version_file = os.path.join(project_path, 'django_admin_json_editor', 'version.py')
-
-if os.path.exists(version_file):
-    with open(version_file, 'r') as fout:
-        version_text = fout.read()
-        version = re.compile(r'.*__version__ = \'(.*?)\'', re.S).match(version_text).group(1)
-else:
-    version = 'dev'
 
 # allow setup.py to be run from any path
 os.chdir(project_path)
@@ -26,6 +16,7 @@ requirements = [
 ]
 
 setup_requires = [
+    'setuptools_scm',
     'pytest-runner',
 ]
 
@@ -36,7 +27,7 @@ test_requirements = [
 
 setup(
     name='django-admin-json-editor',
-    version=version,
+    version=get_version(),
     packages=['django_admin_json_editor'],
     include_package_data=True,
     license='MIT License',
