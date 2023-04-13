@@ -49,6 +49,7 @@ class JSONEditorWidget(forms.Widget):
         }
         js = [
             'django_admin_json_editor/jsoneditor/jsoneditor.min.js',
+            'django_admin_json_editor/editor.js',
         ]
 
         if self._editor_options['theme'] == 'bootstrap4':
